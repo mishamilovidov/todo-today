@@ -1,4 +1,4 @@
--- Insert role
+-- Insert roles
 insert into role (name) values ('ROLE_USER');
 
 -- Insert two users (passwords are both password)
