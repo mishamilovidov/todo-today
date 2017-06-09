@@ -11,16 +11,16 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-public class User implements UserDetails {
+public class User implements UserDetails{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(unique = true)
-    @Size(min = 8, max = 20)
+    @Size(min = 8, max =20)
     private String username;
 
-    @Column(length = 100)
+    @Size(max = 100)
     private String password;
 
     @Column(nullable = false)
@@ -35,14 +35,6 @@ public class User implements UserDetails {
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(role.getName()));
         return authorities;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     @Override
